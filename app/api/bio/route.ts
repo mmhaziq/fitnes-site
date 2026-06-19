@@ -3,6 +3,8 @@ import { getToken } from 'next-auth/jwt';
 import connectDB from '@/lib/mongodb';
 import Bio from '@/models/Bio';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     await connectDB();

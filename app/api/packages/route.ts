@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { getToken } from 'next-auth/jwt';
 import connectDB from '@/lib/mongodb';
 import Package from '@/models/Package';
