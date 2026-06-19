@@ -28,7 +28,7 @@ export default function RichEditor({ content, onChange }: Props) {
       type="button"
       onClick={() => action()}
       className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
-        active ? 'bg-stone-800 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+        active ? 'bg-accent text-stone-950' : 'bg-stone-700 text-stone-300 hover:bg-stone-600'
       }`}
     >
       {label}
@@ -36,9 +36,9 @@ export default function RichEditor({ content, onChange }: Props) {
   );
 
   return (
-    <div className="border border-stone-200 rounded-xl overflow-hidden">
+    <div className="border border-stone-700 rounded-xl overflow-hidden">
       {/* Toolbar */}
-      <div className="flex flex-wrap gap-1.5 p-3 border-b border-stone-100 bg-stone-50">
+      <div className="flex flex-wrap gap-1.5 p-3 border-b border-stone-700 bg-stone-800">
         {btn(() => editor.chain().focus().toggleBold().run(), editor.isActive('bold'), 'B')}
         {btn(() => editor.chain().focus().toggleItalic().run(), editor.isActive('italic'), 'I')}
         {btn(() => editor.chain().focus().toggleHeading({ level: 2 }).run(), editor.isActive('heading', { level: 2 }), 'H2')}
@@ -52,7 +52,7 @@ export default function RichEditor({ content, onChange }: Props) {
             const url = window.prompt('Enter URL');
             if (url) editor.chain().focus().setLink({ href: url }).run();
           }}
-          className="px-2.5 py-1 rounded text-xs font-medium bg-stone-100 text-stone-600 hover:bg-stone-200"
+          className="px-2.5 py-1 rounded text-xs font-medium bg-stone-700 text-stone-300 hover:bg-stone-600"
         >
           Link
         </button>
@@ -61,7 +61,7 @@ export default function RichEditor({ content, onChange }: Props) {
 
       <EditorContent
         editor={editor}
-        className="prose prose-stone max-w-none p-4 min-h-[300px] focus:outline-none text-sm [&_.ProseMirror]:outline-none"
+        className="prose prose-invert max-w-none p-4 min-h-[300px] focus:outline-none text-sm bg-stone-800 text-stone-200 [&_.ProseMirror]:outline-none"
       />
     </div>
   );

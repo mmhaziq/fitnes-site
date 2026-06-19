@@ -36,10 +36,10 @@ export default function AdminBlogsPage() {
     <AdminGuard>
       <div className="p-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="font-display text-2xl font-bold text-stone-900">Blog Posts</h1>
+          <h1 className="font-display text-2xl font-bold text-white">Blog Posts</h1>
           <Link
             href="/admin/blogs/new"
-            className="px-4 py-2 bg-stone-900 text-stone-50 text-sm font-medium rounded-full hover:bg-accent transition-colors"
+            className="px-4 py-2 bg-accent text-stone-950 text-sm font-bold rounded-full hover:bg-accent-light transition-colors"
           >
             + New Post
           </Link>
@@ -57,9 +57,9 @@ export default function AdminBlogsPage() {
             </Link>
           </div>
         ) : (
-          <div className="bg-white rounded-xl border border-stone-100 overflow-hidden">
+          <div className="bg-stone-900 rounded-xl border border-stone-800 overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-stone-50 border-b border-stone-100">
+              <thead className="bg-stone-800 border-b border-stone-700">
                 <tr>
                   <th className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-stone-400">Title</th>
                   <th className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-stone-400">Status</th>
@@ -67,17 +67,17 @@ export default function AdminBlogsPage() {
                   <th className="px-5 py-3" />
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-50">
+              <tbody className="divide-y divide-stone-800">
                 {blogs.map((blog) => (
-                  <tr key={blog._id} className="hover:bg-stone-50 transition-colors">
-                    <td className="px-5 py-3.5 font-medium text-stone-800">{blog.title}</td>
+                  <tr key={blog._id} className="hover:bg-stone-800/50 transition-colors">
+                    <td className="px-5 py-3.5 font-medium text-white">{blog.title}</td>
                     <td className="px-5 py-3.5">
                       <button
                         onClick={() => handleToggle(blog)}
                         className={`text-xs px-2.5 py-1 rounded-full font-medium ${
                           blog.published
-                            ? 'bg-green-50 text-green-700'
-                            : 'bg-stone-100 text-stone-500'
+                            ? 'bg-green-500/20 text-green-400'
+                            : 'bg-stone-700 text-stone-400'
                         }`}
                       >
                         {blog.published ? 'Published' : 'Draft'}
