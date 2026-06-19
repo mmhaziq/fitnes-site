@@ -4,6 +4,8 @@ import connectDB from '@/lib/mongodb';
 import Package from '@/models/Package';
 import Bio from '@/models/Bio';
 
+export const revalidate = 0;
+
 async function getData() {
   try {
     await connectDB();
