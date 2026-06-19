@@ -26,10 +26,10 @@ module.exports = {
           950: '#0c0a09',
         },
         accent: {
-          DEFAULT: '#2D6A4F',
-          light: '#40916C',
-          dark: '#1B4332',
-          muted: '#D8F3DC',
+          DEFAULT: '#B4FF4F',
+          light: '#C8FF7A',
+          dark: '#8FCC2A',
+          muted: '#B4FF4F22',
         },
       },
       typography: (theme) => ({

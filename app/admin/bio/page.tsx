@@ -37,20 +37,20 @@ export default function AdminBioPage() {
 
   const field = (label: string, key: string, type = 'text', rows?: number) => (
     <div>
-      <label className="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">{label}</label>
+      <label className="block text-xs font-semibold text-stone-400 uppercase tracking-wider mb-1.5">{label}</label>
       {rows ? (
         <textarea
           value={form[key] || ''}
           onChange={e => setForm({ ...form, [key]: e.target.value })}
           rows={rows}
-          className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-none"
+          className="w-full admin-field focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent/60 resize-none"
         />
       ) : (
         <input
           type={type}
           value={form[key] || ''}
           onChange={e => setForm({ ...form, [key]: e.target.value })}
-          className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
+          className="w-full admin-field focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent/60"
         />
       )}
     </div>
@@ -71,11 +71,11 @@ export default function AdminBioPage() {
   return (
     <AdminGuard>
       <div className="p-8 max-w-2xl">
-        <h1 className="font-display text-2xl font-bold text-stone-900 mb-8">Bio / Profile</h1>
+        <h1 className="font-display text-2xl font-bold text-white mb-8">Bio / Profile</h1>
 
         <div className="space-y-6">
-          <div className="bg-white border border-stone-100 rounded-xl p-6 space-y-4">
-            <h2 className="font-semibold text-stone-700 text-sm">Basic Info</h2>
+          <div className="bg-stone-900 border border-stone-800 rounded-xl p-6 space-y-4">
+            <h2 className="font-semibold text-stone-300 text-sm">Basic Info</h2>
             {field('Full Name', 'name')}
             {field('Title / Role', 'title', 'text')}
             {field('Tagline (Hero)', 'tagline')}
@@ -84,8 +84,8 @@ export default function AdminBioPage() {
             {field('Location', 'location')}
           </div>
 
-          <div className="bg-white border border-stone-100 rounded-xl p-6 space-y-4">
-            <h2 className="font-semibold text-stone-700 text-sm">Contact & Social</h2>
+          <div className="bg-stone-900 border border-stone-800 rounded-xl p-6 space-y-4">
+            <h2 className="font-semibold text-stone-300 text-sm">Contact & Social</h2>
             {field('Email', 'email', 'email')}
             {field('Phone', 'phone', 'tel')}
             {field('WhatsApp Link', 'whatsapp', 'url')}
@@ -93,9 +93,9 @@ export default function AdminBioPage() {
             {field('Facebook URL', 'facebook', 'url')}
           </div>
 
-          <div className="bg-white border border-stone-100 rounded-xl p-6 space-y-4">
+          <div className="bg-stone-900 border border-stone-800 rounded-xl p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-stone-700 text-sm">Certifications</h2>
+              <h2 className="font-semibold text-stone-300 text-sm">Certifications</h2>
               <button
                 onClick={() => setForm({ ...form, certifications: [...form.certifications, { title: '', issuer: '', year: '' }] })}
                 className="text-xs text-accent hover:underline"
@@ -104,18 +104,18 @@ export default function AdminBioPage() {
             {form.certifications?.map((c: any, i: number) => (
               <div key={i} className="grid grid-cols-3 gap-2">
                 <input placeholder="Title" value={c.title} onChange={e => updateCert(i, 'title', e.target.value)}
-                  className="px-3 py-2 border border-stone-200 rounded-lg text-xs focus:outline-none focus:border-accent" />
+                  className="px-3 py-2 bg-stone-800 border border-stone-700 rounded-lg text-xs text-white placeholder-stone-500 focus:outline-none focus:border-accent/60" />
                 <input placeholder="Issuer" value={c.issuer} onChange={e => updateCert(i, 'issuer', e.target.value)}
-                  className="px-3 py-2 border border-stone-200 rounded-lg text-xs focus:outline-none focus:border-accent" />
+                  className="px-3 py-2 bg-stone-800 border border-stone-700 rounded-lg text-xs text-white placeholder-stone-500 focus:outline-none focus:border-accent/60" />
                 <input placeholder="Year" value={c.year} onChange={e => updateCert(i, 'year', e.target.value)}
-                  className="px-3 py-2 border border-stone-200 rounded-lg text-xs focus:outline-none focus:border-accent" />
+                  className="px-3 py-2 bg-stone-800 border border-stone-700 rounded-lg text-xs text-white placeholder-stone-500 focus:outline-none focus:border-accent/60" />
               </div>
             ))}
           </div>
 
-          <div className="bg-white border border-stone-100 rounded-xl p-6 space-y-4">
+          <div className="bg-stone-900 border border-stone-800 rounded-xl p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-stone-700 text-sm">Stats (Hero numbers)</h2>
+              <h2 className="font-semibold text-stone-300 text-sm">Stats (Hero numbers)</h2>
               <button
                 onClick={() => setForm({ ...form, stats: [...form.stats, { label: '', value: '' }] })}
                 className="text-xs text-accent hover:underline"
@@ -124,9 +124,9 @@ export default function AdminBioPage() {
             {form.stats?.map((s: any, i: number) => (
               <div key={i} className="grid grid-cols-2 gap-2">
                 <input placeholder="Label (e.g. Clients Trained)" value={s.label} onChange={e => updateStat(i, 'label', e.target.value)}
-                  className="px-3 py-2 border border-stone-200 rounded-lg text-xs focus:outline-none focus:border-accent" />
+                  className="px-3 py-2 bg-stone-800 border border-stone-700 rounded-lg text-xs text-white placeholder-stone-500 focus:outline-none focus:border-accent/60" />
                 <input placeholder="Value (e.g. 500+)" value={s.value} onChange={e => updateStat(i, 'value', e.target.value)}
-                  className="px-3 py-2 border border-stone-200 rounded-lg text-xs focus:outline-none focus:border-accent" />
+                  className="px-3 py-2 bg-stone-800 border border-stone-700 rounded-lg text-xs text-white placeholder-stone-500 focus:outline-none focus:border-accent/60" />
               </div>
             ))}
           </div>

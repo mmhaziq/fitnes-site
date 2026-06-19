@@ -23,12 +23,12 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-stone-50/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        scrolled ? 'bg-stone-950/95 backdrop-blur-sm border-b border-stone-800' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-display text-xl font-bold text-stone-900 tracking-tight">
-          AM<span className="text-accent">.</span>
+        <Link href="/" className="font-display text-xl font-bold text-white tracking-tight">
+          Pump &amp; Burn<span className="text-accent">.</span>
         </Link>
 
         {/* Desktop */}
@@ -37,7 +37,7 @@ export default function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+                className="text-sm font-medium text-stone-400 hover:text-white transition-colors"
               >
                 {l.label}
               </Link>
@@ -46,7 +46,7 @@ export default function Navbar() {
           <li>
             <Link
               href="/#contact"
-              className="px-4 py-2 bg-stone-900 text-stone-50 text-sm font-medium rounded-full hover:bg-accent transition-colors"
+              className="px-5 py-2 bg-accent text-stone-950 text-sm font-bold rounded-full hover:bg-accent-light transition-colors"
             >
               Book a Session
             </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-stone-700"
+          className="md:hidden text-stone-300"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -71,13 +71,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-stone-50 border-t border-stone-100 px-6 py-4 space-y-3">
+        <div className="md:hidden bg-stone-900 border-t border-stone-800 px-6 py-4 space-y-3">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block text-stone-700 font-medium py-1"
+              className="block text-stone-300 font-medium py-1 hover:text-white transition-colors"
             >
               {l.label}
             </Link>
@@ -85,7 +85,7 @@ export default function Navbar() {
           <Link
             href="/#contact"
             onClick={() => setOpen(false)}
-            className="block mt-2 px-4 py-2 bg-stone-900 text-stone-50 text-sm font-medium rounded-full text-center"
+            className="block mt-2 px-4 py-2 bg-accent text-stone-950 text-sm font-bold rounded-full text-center"
           >
             Book a Session
           </Link>

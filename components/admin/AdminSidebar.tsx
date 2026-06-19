@@ -18,7 +18,7 @@ export default function AdminSidebar() {
     <aside className="w-56 bg-stone-900 min-h-screen flex flex-col">
       <div className="px-6 py-6 border-b border-stone-800">
         <Link href="/" className="font-display text-xl font-bold text-stone-100">
-          AM<span className="text-accent-light">.</span>
+          Pump &amp; Burn<span className="text-accent-light">.</span>
         </Link>
         <p className="text-xs text-stone-500 mt-0.5">Admin Panel</p>
       </div>

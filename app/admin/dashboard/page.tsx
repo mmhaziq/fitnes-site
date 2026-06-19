@@ -21,9 +21,9 @@ export default function DashboardPage() {
   }, []);
 
   const cards = [
-    { label: 'Total Blogs', value: stats.blogs, href: '/admin/blogs', color: 'bg-blue-50 text-blue-700' },
-    { label: 'Published', value: stats.published, href: '/admin/blogs', color: 'bg-green-50 text-green-700' },
-    { label: 'Packages', value: stats.packages, href: '/admin/packages', color: 'bg-amber-50 text-amber-700' },
+    { label: 'Total Blogs', value: stats.blogs, href: '/admin/blogs', color: 'bg-stone-800 border-stone-700 text-blue-400' },
+    { label: 'Published', value: stats.published, href: '/admin/blogs', color: 'bg-stone-800 border-stone-700 text-accent' },
+    { label: 'Packages', value: stats.packages, href: '/admin/packages', color: 'bg-stone-800 border-stone-700 text-amber-400' },
   ];
 
   const actions = [
@@ -35,27 +35,27 @@ export default function DashboardPage() {
   return (
     <AdminGuard>
       <div className="p-8">
-        <h1 className="font-display text-2xl font-bold text-stone-900 mb-8">Dashboard</h1>
+        <h1 className="font-display text-2xl font-bold text-white mb-8">Dashboard</h1>
 
         <div className="grid grid-cols-3 gap-4 mb-10">
           {cards.map((c) => (
-            <Link key={c.label} href={c.href} className={`rounded-xl p-5 ${c.color} hover:opacity-80 transition-opacity`}>
-              <p className="text-3xl font-display font-bold">{c.value}</p>
-              <p className="text-sm font-medium mt-1 opacity-70">{c.label}</p>
+            <Link key={c.label} href={c.href} className={`rounded-xl p-5 border ${c.color} hover:border-accent/50 transition-colors`}>
+              <p className={`text-3xl font-display font-bold ${c.color.includes('accent') ? 'text-accent' : c.color.includes('blue') ? 'text-blue-400' : 'text-amber-400'}`}>{c.value}</p>
+              <p className="text-sm font-medium mt-1 text-stone-400">{c.label}</p>
             </Link>
           ))}
         </div>
 
-        <h2 className="text-sm font-semibold uppercase tracking-widest text-stone-400 mb-4">Quick Actions</h2>
+        <h2 className="text-xs font-bold uppercase tracking-widest text-stone-500 mb-4">Quick Actions</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {actions.map((a) => (
             <Link
               key={a.href}
               href={a.href}
-              className="bg-white border border-stone-100 rounded-xl p-5 hover:border-accent hover:shadow-sm transition-all"
+              className="bg-stone-900 border border-stone-800 rounded-xl p-5 hover:border-accent/50 transition-all"
             >
-              <p className="font-semibold text-stone-800 mb-1">{a.label}</p>
-              <p className="text-xs text-stone-400">{a.desc}</p>
+              <p className="font-semibold text-white mb-1">{a.label}</p>
+              <p className="text-xs text-stone-500">{a.desc}</p>
             </Link>
           ))}
         </div>

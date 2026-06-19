@@ -28,7 +28,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
   return (
     <div className="flex min-h-screen">
       <AdminSidebar />
-      <main className="flex-1 bg-stone-50 overflow-y-auto">
+      <main className="flex-1 bg-stone-950 overflow-y-auto">
         {children}
       </main>
     </div>

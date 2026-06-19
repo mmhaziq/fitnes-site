@@ -71,12 +71,12 @@ export default function AdminPackagesPage() {
 
   const field = (label: string, key: string, type = 'text', placeholder = '') => (
     <div>
-      <label className="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">{label}</label>
+      <label className="block admin-label">{label}</label>
       <input
         type={type}
         value={form[key]}
         onChange={e => setForm({ ...form, [key]: e.target.value })}
-        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
+        className="admin-field"
         placeholder={placeholder}
       />
     </div>
@@ -88,10 +88,10 @@ export default function AdminPackagesPage() {
         {/* List */}
         <div>
           <div className="flex items-center justify-between mb-5">
-            <h1 className="font-display text-2xl font-bold text-stone-900">Packages</h1>
+            <h1 className="font-display text-2xl font-bold text-white">Packages</h1>
             <button
               onClick={handleNew}
-              className="px-4 py-2 bg-stone-900 text-stone-50 text-sm font-medium rounded-full hover:bg-accent transition-colors"
+              className="px-4 py-2 bg-accent text-stone-950 text-sm font-bold rounded-full hover:bg-accent-light transition-colors"
             >
               + New
             </button>
@@ -99,9 +99,9 @@ export default function AdminPackagesPage() {
 
           <div className="space-y-3">
             {packages.map((pkg) => (
-              <div key={pkg._id} className="bg-white border border-stone-100 rounded-xl p-4 flex items-center justify-between">
+              <div key={pkg._id} className="bg-stone-900 border border-stone-800 rounded-xl p-4 flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-stone-800 text-sm">{pkg.name}</p>
+                  <p className="font-medium text-white text-sm">{pkg.name}</p>
                   <p className="text-xs text-stone-400">PKR {pkg.price?.toLocaleString()} {pkg.duration}</p>
                   <span className={`text-xs px-2 py-0.5 rounded-full ${pkg.active ? 'bg-green-50 text-green-700' : 'bg-stone-100 text-stone-400'}`}>
                     {pkg.active ? 'Active' : 'Hidden'}
@@ -119,10 +119,10 @@ export default function AdminPackagesPage() {
 
         {/* Form */}
         <div>
-          <h2 className="font-display text-lg font-bold text-stone-900 mb-5">
+          <h2 className="font-display text-lg font-bold text-white mb-5">
             {editId ? 'Edit Package' : 'New Package'}
           </h2>
-          <div className="bg-white border border-stone-100 rounded-xl p-6 space-y-4">
+          <div className="bg-stone-900 border border-stone-800 rounded-xl p-6 space-y-4">
             {field('Name', 'name', 'text', 'e.g. Starter')}
             {field('Tagline', 'tagline', 'text', 'Short description')}
             <div className="grid grid-cols-2 gap-3">
@@ -131,20 +131,20 @@ export default function AdminPackagesPage() {
             </div>
             {field('Duration', 'duration', 'text', '/month')}
             <div>
-              <label className="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">
+              <label className="block admin-label">
                 Features (one per line)
               </label>
               <textarea
                 value={form.features}
                 onChange={e => setForm({ ...form, features: e.target.value })}
                 rows={5}
-                className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-none"
+                className="admin-field resize-none"
                 placeholder="3x sessions per week&#10;Nutrition plan&#10;Weekly check-in"
               />
             </div>
             {field('Display Order', 'order', 'number', '0')}
             <div className="flex gap-6">
-              <label className="flex items-center gap-2 text-sm text-stone-600 cursor-pointer">
+              <label className="flex items-center gap-2 text-sm text-stone-300 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={form.highlighted}
@@ -153,7 +153,7 @@ export default function AdminPackagesPage() {
                 />
                 Highlighted (Most Popular)
               </label>
-              <label className="flex items-center gap-2 text-sm text-stone-600 cursor-pointer">
+              <label className="flex items-center gap-2 text-sm text-stone-300 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={form.active}
@@ -169,7 +169,7 @@ export default function AdminPackagesPage() {
             <button
               onClick={handleSave}
               disabled={saving}
-              className="w-full py-3 bg-stone-900 text-stone-50 rounded-full text-sm font-medium hover:bg-accent transition-colors disabled:opacity-50"
+              className="w-full py-3 bg-accent text-stone-950 rounded-full text-sm font-bold hover:bg-accent-light transition-colors disabled:opacity-50"
             >
               {saving ? 'Saving…' : editId ? 'Update Package' : 'Create Package'}
             </button>
