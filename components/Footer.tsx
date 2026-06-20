@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 pt-6 border-t border-stone-800 text-xs text-stone-600 text-center">
-          © {new Date().getFullYear()} Alex Malik Fitness. Karachi, Pakistan.
+          © {new Date().getFullYear()} Pump & Burn. Karachi, Pakistan.
         </div>
       </div>
     </footer>
