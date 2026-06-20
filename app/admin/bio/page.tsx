@@ -1,6 +1,7 @@
 'use client';
 
 import AdminGuard from '@/components/admin/AdminGuard';
+import ImageUpload from '@/components/admin/ImageUpload';
 import { useEffect, useState } from 'react';
 
 const empty = {
@@ -80,7 +81,7 @@ export default function AdminBioPage() {
             {field('Title / Role', 'title', 'text')}
             {field('Tagline (Hero)', 'tagline')}
             {field('About (long bio)', 'about', 'text', 5)}
-            {field('Profile Image URL', 'profileImage', 'url')}
+            <ImageUpload label="Profile Image" value={form.profileImage || ''} onChange={url => setForm({ ...form, profileImage: url })} />
             {field('Location', 'location')}
           </div>
 

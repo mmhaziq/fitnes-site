@@ -1,4 +1,8 @@
 export const revalidate = 0;
+export const metadata = {
+  title: 'Training Packages',
+  description: 'Choose from personalised training packages designed for your goals. In-person and online coaching in Karachi.',
+};
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';

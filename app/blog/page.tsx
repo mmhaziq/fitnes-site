@@ -1,4 +1,8 @@
 export const revalidate = 0;
+export const metadata = {
+  title: 'Blog',
+  description: 'Training tips, nutrition guides, and mindset articles from Pump & Burn.',
+};
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';

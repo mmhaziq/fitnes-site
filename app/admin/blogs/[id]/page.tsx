@@ -2,6 +2,7 @@
 
 import AdminGuard from '@/components/admin/AdminGuard';
 import RichEditor from '@/components/admin/RichEditor';
+import ImageUpload from '@/components/admin/ImageUpload';
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
@@ -24,6 +25,7 @@ export default function BlogEditorPage() {
   const [form, setForm] = useState(empty);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
+  const [preview, setPreview] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -67,6 +69,34 @@ export default function BlogEditorPage() {
 
   return (
     <AdminGuard>
+      {/* Preview Modal */}
+      {preview && (
+        <div className="fixed inset-0 z-50 bg-stone-950 overflow-y-auto">
+          <div className="max-w-2xl mx-auto px-6 pt-28 pb-24">
+            <button onClick={() => setPreview(false)} className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-accent mb-8 transition-colors">
+              ← Close Preview
+            </button>
+            {form.tags && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {form.tags.split(',').map(t => t.trim()).filter(Boolean).map(tag => (
+                  <span key={tag} className="text-xs px-2 py-0.5 bg-accent/10 text-accent rounded-full font-medium border border-accent/20">{tag}</span>
+                ))}
+              </div>
+            )}
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-4">{form.title || 'Untitled'}</h1>
+            {form.coverImage && (
+              <div className="rounded-2xl overflow-hidden mb-10 aspect-video">
+                <img src={form.coverImage} alt={form.title} className="w-full h-full object-cover" />
+              </div>
+            )}
+            <div
+              className="prose prose-invert prose-stone max-w-none prose-headings:text-white prose-p:text-stone-300 prose-a:text-accent prose-strong:text-white prose-li:text-stone-300"
+              dangerouslySetInnerHTML={{ __html: form.content || '<p>No content yet.</p>' }}
+            />
+          </div>
+        </div>
+      )}
+
       <div className="p-8 max-w-3xl">
         <div className="flex items-center gap-4 mb-8">
           <Link href="/admin/blogs" className="text-stone-400 hover:text-white transition-colors">
@@ -75,6 +105,9 @@ export default function BlogEditorPage() {
           <h1 className="font-display text-2xl font-bold text-white">
             {isNew ? 'New Post' : 'Edit Post'}
           </h1>
+          <button onClick={() => setPreview(true)} className="ml-auto text-xs text-stone-400 border border-stone-700 px-3 py-1.5 rounded-full hover:border-accent hover:text-accent transition-colors">
+            Preview
+          </button>
         </div>
 
         <div className="space-y-5">
@@ -100,16 +133,11 @@ export default function BlogEditorPage() {
             />
           </div>
 
-          <div>
-            <label className="admin-label">Cover Image URL</label>
-            <input
-              type="url"
-              value={form.coverImage}
-              onChange={e => setForm({ ...form, coverImage: e.target.value })}
-              className="admin-field"
-              placeholder="https://..."
-            />
-          </div>
+          <ImageUpload
+            label="Cover Image"
+            value={form.coverImage}
+            onChange={url => setForm({ ...form, coverImage: url })}
+          />
 
           <div>
             <label className="admin-label">Tags (comma-separated)</label>

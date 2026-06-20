@@ -9,6 +9,10 @@ const links = [
   { href: '/admin/bio', label: 'Bio / Profile', icon: '◉' },
   { href: '/admin/blogs', label: 'Blogs', icon: '✎' },
   { href: '/admin/packages', label: 'Packages', icon: '⬡' },
+  { href: '/admin/testimonials', label: 'Testimonials', icon: '★' },
+  { href: '/admin/gallery', label: 'Gallery', icon: '⊞' },
+  { href: '/admin/faqs', label: 'FAQs', icon: '?' },
+  { href: '/admin/contacts', label: 'Inquiries', icon: '✉' },
 ];
 
 export default function AdminSidebar() {
