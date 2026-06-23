@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
-        display: ['var(--font-syne)'],
+        sans: ['var(--font-barlow)', 'sans-serif'],
+        display: ['var(--font-barlow-condensed)', 'sans-serif'],
       },
       colors: {
         stone: {
@@ -32,14 +32,20 @@ module.exports = {
           muted: '#B4FF4F22',
         },
       },
+      fontSize: {
+        'giant': ['clamp(4rem,12vw,10rem)', { lineHeight: '0.9', letterSpacing: '-0.03em' }],
+        'huge':  ['clamp(2.5rem,7vw,6rem)',  { lineHeight: '0.95', letterSpacing: '-0.02em' }],
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.stone.700'),
+            color: theme('colors.stone.300'),
             a: { color: theme('colors.accent.DEFAULT') },
-            h1: { color: theme('colors.stone.900'), fontFamily: theme('fontFamily.display').join(', ') },
-            h2: { color: theme('colors.stone.900'), fontFamily: theme('fontFamily.display').join(', ') },
-            h3: { color: theme('colors.stone.900') },
+            h1: { color: theme('colors.white'), fontFamily: 'var(--font-barlow-condensed)', fontWeight: '700', textTransform: 'uppercase' },
+            h2: { color: theme('colors.white'), fontFamily: 'var(--font-barlow-condensed)', fontWeight: '700', textTransform: 'uppercase' },
+            h3: { color: theme('colors.white'), fontFamily: 'var(--font-barlow-condensed)', fontWeight: '600' },
+            strong: { color: theme('colors.white') },
+            blockquote: { borderLeftColor: theme('colors.accent.DEFAULT'), color: theme('colors.stone.300') },
           },
         },
       }),
