@@ -5,3 +5,10 @@ node_modules/
 npm-debug.log*
 .DS_Store
 .vercel
+
+# Vercel
+.vercel
+
+# Local env files
+.env*.local
+.env.production
