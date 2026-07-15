@@ -1,4 +1,4 @@
-# Pump & Burn — Fitness Trainer Website
+# Pump & Burn — Fitness Trainer Website — Fitness Trainer Website
 
 A full-stack personal trainer website built with **Next.js 14**, **MongoDB Atlas**, and **Tailwind CSS**. Includes a complete admin dashboard for managing all content.
 
