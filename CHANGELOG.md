@@ -1,1 +1,1 @@
-# Changelog\n\n## [Unreleased]\n
+# Changelog\n\nAll notable changes documented here.\n\n## [Unreleased]\n\n### Added\n- Initial release\n
