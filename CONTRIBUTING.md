@@ -1,1 +1,1 @@
-# Contributing\n\nPull requests are welcome.\n
+# Contributing\n\nPull requests welcome. Please open an issue first to discuss changes.\n\n## Setup\n\n1. Fork the repo\n2. Create your branch\n3. Commit and push\n4. Open a PR\n
