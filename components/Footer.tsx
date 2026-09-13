@@ -17,10 +17,10 @@ export default function Footer() {
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-stone-500 mb-3">Navigation</p>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/#about" className="hover:text-accent transition-colors">About</Link></li>
+                <li><Link href="/about" className="hover:text-accent transition-colors">About</Link></li>
                 <li><Link href="/blog" className="hover:text-accent transition-colors">Blog</Link></li>
                 <li><Link href="/packages" className="hover:text-accent transition-colors">Packages</Link></li>
-                <li><Link href="/#contact" className="hover:text-accent transition-colors">Contact</Link></li>
+                <li><Link href="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
               </ul>
             </div>
           </div>

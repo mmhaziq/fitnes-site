@@ -102,7 +102,7 @@ export default async function PackagesPage() {
 
           <p className="text-center text-stone-500 text-sm mt-12">
             Need a custom plan?{' '}
-            <a href={bio?.whatsapp || '/#contact'} className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href={bio?.whatsapp || '/contact'} className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
               Message on WhatsApp
             </a>
           </p>

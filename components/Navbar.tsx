@@ -14,10 +14,10 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { href: '/#about', label: 'About' },
+    { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
     { href: '/packages', label: 'Packages' },
-    { href: '/#contact', label: 'Contact' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -45,7 +45,7 @@ export default function Navbar() {
           ))}
           <li>
             <Link
-              href="/#contact"
+              href="/contact"
               className="px-5 py-2 bg-accent text-stone-950 text-sm font-bold rounded-full hover:bg-accent-light transition-colors"
             >
               Book a Session
@@ -83,7 +83,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="block mt-2 px-4 py-2 bg-accent text-stone-950 text-sm font-bold rounded-full text-center"
           >

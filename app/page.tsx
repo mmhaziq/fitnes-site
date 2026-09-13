@@ -57,7 +57,7 @@ export default async function HomePage() {
               <Link href="/packages" className="px-7 py-3.5 bg-accent text-stone-950 font-bold rounded-full hover:bg-accent-light transition-colors text-sm">
                 View Packages
               </Link>
-              <Link href="/#about" className="px-7 py-3.5 border border-stone-700 text-stone-300 font-medium rounded-full hover:border-accent hover:text-accent transition-colors text-sm">
+              <Link href="/about" className="px-7 py-3.5 border border-stone-700 text-stone-300 font-medium rounded-full hover:border-accent hover:text-accent transition-colors text-sm">
                 About Me
               </Link>
             </div>
